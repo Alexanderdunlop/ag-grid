@@ -1,0 +1,22 @@
+<div class="container" style="margin-top: 20px;">
+  <h1 class="title">Table Example</h1>
+  <h2 class="subtitle">
+    This is example of the grid table with a group selector, this data is being
+    fetched by a basic git api.
+  </h2>
+
+  <button class="button is-info is-rounded" (click)="getSelectedRows()">
+    Get Selected Rows
+  </button>
+
+  <ag-grid-angular
+    #agGrid
+    style="margin-top: 10px; width: 100%; height: 500px;"
+    class="ag-theme-balham"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [groupSelectsChildren]="true"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+  ></ag-grid-angular>
+</div>

@@ -1,0 +1,18 @@
+<div class="container" style="margin-top: 20px;">
+  <h1 class="title">Styling Example</h1>
+  <h2 class="subtitle">
+    This is an example of custom styling (api fetching data).
+  </h2>
+
+  <button (click)="getSelectedRows()">Get Selected Rows</button>
+
+  <ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+  >
+  </ag-grid-angular>
+</div>

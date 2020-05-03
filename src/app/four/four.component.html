@@ -1,0 +1,15 @@
+<div class="container" style="margin-top: 20px;">
+  <!-- <h1 class="title">Customized Cell Example</h1> -->
+  <!-- <h2 class="subtitle">
+    This is an example of each data row cell customize rendering giving a
+    different data display and style change (api fetching data).
+  </h2> -->
+  <ag-grid-angular
+    style="width: 1500px; height: 750px; padding-top: 10px;"
+    class="ag-theme-balham"
+    [columnDefs]="colDefs"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+  >
+  </ag-grid-angular>
+</div>
