@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { data } from '../../assets/example.json';
 
 @Component({
   selector: 'app-four',
@@ -8,55 +8,182 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FourComponent implements OnInit {
   colDefs;
+  defaultColDef;
   private gridApi;
   private gridColumnApi;
   private searchValue;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.colDefs = [
-      {
-        field: 'value',
-        editable: true,
-        cellEditorSelector: function (params) {
-          if (params.data.type === 'age') {
-            return {
-              component: 'numericCellEditor',
-            };
-          }
-
-          if (params.data.type === 'gender') {
-            return {
-              component: 'agRichSelectCellEditor',
-              params: {
-                values: ['Male', 'Female'],
-              },
-            };
-          }
-
-          if (params.data.type === 'mood') {
-            return {
-              component: 'moodEditor',
-            };
-          }
-
-          return null;
-        },
-      },
-      { field: 'type' },
+      { field: 'remEmployeeHistoryID' },
+      { field: 'remEmployeeID' },
+      { field: 'remGroupID' },
+      { field: 'organisationID' },
+      { field: 'hrID' },
+      { field: 'lastUsedInSurvey' },
+      { field: 'position' },
+      { field: 'genderRID' },
+      { field: 'name' },
+      { field: 'spJobCode1' },
+      { field: 'degreeOfMatchRID' },
+      { field: 'spJobCode2' },
+      { field: 'managementLevelRID' },
+      { field: 'EMV' },
+      { field: 'department' },
+      { field: 'band' },
+      { field: 'jobID' },
+      { field: 'regionID' },
+      { field: 'retailMatrix' },
+      { field: 'functionalArea' },
+      { field: 'performanceRating' },
+      { field: 'evaluationLevelRID' },
+      { field: 'primaryEvalRID' },
+      { field: 'primaryEvalIfBothExistRID' },
+      { field: 'sp10ValidationStatusRID' },
+      { field: 'sp10Factor1Letter' },
+      { field: 'sp10Factor1Number' },
+      { field: 'sp10Factor2Letter' },
+      { field: 'sp10Factor2Number' },
+      { field: 'sp10Factor3Letter' },
+      { field: 'sp10Factor3Number' },
+      { field: 'sp10Factor4Letter' },
+      { field: 'sp10Factor4Number' },
+      { field: 'sp10SubTotal' },
+      { field: 'sp10Factor5Letter' },
+      { field: 'sp10Factor5Number' },
+      { field: 'sp10Factor6Letter' },
+      { field: 'sp10Factor6Number' },
+      { field: 'sp10Factor7Letter' },
+      { field: 'sp10Factor7Number' },
+      { field: 'sp10Factor8Letter' },
+      { field: 'sp10Factor8Number' },
+      { field: 'sp10Factor9Letter' },
+      { field: 'sp10Factor9Number' },
+      { field: 'sp10Factor10Letter' },
+      { field: 'sp10Factor10Number' },
+      { field: 'workingConditionsLetter' },
+      { field: 'workingConditionsNumber' },
+      { field: 'totalsp10PointsActual' },
+      { field: 'gradeCalc' },
+      { field: 'SPBandSP10RID' },
+      { field: 'sp5ValidationStatusRID' },
+      { field: 'sp5Factor1' },
+      { field: 'sp5Factor2' },
+      { field: 'sp5Factor3' },
+      { field: 'sp5Factor4' },
+      { field: 'sp5Factor5' },
+      { field: 'totalsp5Points' },
+      { field: 'gradeActual' },
+      { field: 'sp10MidPoint' },
+      { field: 'SPBandSP5RID' },
+      { field: 'gradeOnly' },
+      { field: 'sp10MidPointGradeOnly' },
+      { field: 'SPBandGradeOnlyRID' },
+      { field: 'sp10PointsJobCode' },
+      { field: 'gradeJobCode' },
+      { field: 'SPBandJobCodeRID' },
+      { field: 'SPBandRID' },
+      { field: 'gradeSPBand' },
+      { field: 'sp10MidPointSPBand' },
+      { field: 'finalSP10Points' },
+      { field: 'finalGrade' },
+      { field: 'finalSPBandRID' },
+      { field: 'finalGradeFromIfBothExistRID' },
+      { field: 'finalGradeFromRID' },
+      { field: 'baseSalary' },
+      { field: 'hourlyRate' },
+      { field: 'bonusIncentiveActual' },
+      { field: 'bonusIncentivePotentialMax' },
+      { field: 'bonusIncentiveTarget' },
+      { field: 'commission' },
+      { field: 'commissionTarget' },
+      { field: 'isOvertime' },
+      { field: 'overtime' },
+      { field: 'callOutAllowance' },
+      { field: 'otherTaxable1' },
+      { field: 'servicePayment' },
+      { field: 'totalCash' },
+      { field: 'homePhoneAllowance' },
+      { field: 'medicalAllowance' },
+      { field: 'super' },
+      { field: 'kiwiSaverMember' },
+      { field: 'kiwiSaverPercentage' },
+      { field: 'kiwisaver' },
+      { field: 'lifeInsurance' },
+      { field: 'extraLeave' },
+      { field: 'carParking' },
+      { field: 'carAllowance' },
+      { field: 'carValueFactor1RID' },
+      { field: 'carValueFactor2RID' },
+      { field: 'carValueFactor3RID' },
+      { field: 'carValue' },
+      { field: 'clientCarValue' },
+      { field: 'subsClubs' },
+      { field: 'fixedRemEXKS' },
+      { field: 'totalRemEXKS' },
+      { field: 'fixedRemTotal' },
+      { field: 'totalRem' },
+      { field: 'hoursWorked' },
+      { field: 'contractHours' },
+      { field: 'contractLeave' },
+      { field: 'outOfDate' },
+      { field: 'updateReasonRID' },
+      { field: 'useJob' },
+      { field: 'useJobForClientLineAnalysis' },
+      { field: 'tempJob' },
+      { field: 'isVacant' },
+      { field: 'recordStatusID' },
+      { field: 'updatedSP5' },
+      { field: 'updatedSP10' },
+      { field: 'updatedSPBand' },
+      { field: 'updatedJobCode' },
+      { field: 'updatedGradeOnly' },
+      { field: 'updatedRem' },
+      { field: 'updatedDate' },
+      { field: 'updatedUser' },
+      { field: 'createdDate' },
+      { field: 'createdUser' },
+      { field: 'systemTimeStamp' },
+      { field: 'medicalAllowanceFBT' },
+      { field: 'medicalAllowanceTotal' },
+      { field: 'lifeInsuranceFBT' },
+      { field: 'lifeInsuranceTotal' },
+      { field: 'incomeProtectionInsurance' },
+      { field: 'subsClubsFBT' },
+      { field: 'subsClubsTotal' },
+      { field: 'otherBenefitsFBT' },
+      { field: 'otherBenefitsTotal' },
+      { field: 'totalFBT' },
+      { field: 'longTermIncentive' },
+      { field: 'fixedRemEXKSFBT' },
+      { field: 'totalCost' },
+      { field: 'otherBenefits' },
+      { field: 'totalRemEXKSFBT' },
+      { field: 'numberDirectReports' },
+      { field: 'startDateCompany' },
+      { field: 'startDateCurrentRole' },
+      { field: 'birthDate' },
+      { field: 'highestQualificationRID' },
+      { field: 'spANZSCOCode' },
+      { field: 'clientGeneralNotes' },
+      { field: 'clientEmployeeIdNotes' },
+      { field: 'clientInternalNotes' },
+      { field: 'IndicativeANZSCO1' },
+      { field: 'IndicativeANZSCO2' },
     ];
+    this.defaultColDef = {
+      flex: 1,
+      minWidth: 150,
+      sortable: true,
+      resizable: true,
+    };
   }
 
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.http
-      .get(
-        'https://raw.githubusercontent.com/ag-grid/ag-grid-docs/master/src/olympicWinnersSmall.json'
-      )
-      .subscribe((data) => {
-        params.api.setRowData(data);
-      });
+    params.api.setRowData(data);
   }
 }

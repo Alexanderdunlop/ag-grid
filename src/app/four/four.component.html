@@ -8,8 +8,10 @@
     style="width: 1500px; height: 750px; padding-top: 10px;"
     class="ag-theme-balham"
     [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
     [animateRows]="true"
     (gridReady)="onGridReady($event)"
   >
   </ag-grid-angular>
+  <!-- [pivotMode]="true" -->
 </div>

@@ -14,6 +14,7 @@ import { TwoComponent } from './two/two.component';
 import { ThreeComponent } from './three/three.component';
 import { CustomizedCellComponent } from './customized-cell/customized-cell.component';
 import { FourComponent } from './four/four.component';
+import { FiveComponent } from './five/five.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'two', component: TwoComponent },
   { path: 'three', component: ThreeComponent },
   { path: 'four', component: FourComponent },
+  { path: 'five', component: FiveComponent },
 ];
 
 @NgModule({
@@ -32,6 +34,7 @@ const routes: Routes = [
     ThreeComponent,
     CustomizedCellComponent,
     FourComponent,
+    FiveComponent,
   ],
   imports: [
     BrowserModule,
